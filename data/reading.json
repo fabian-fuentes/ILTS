@@ -1,0 +1,66 @@
+{
+  "passages": [
+    {
+      "id": "p1",
+      "topic": "Renewable Energy",
+      "text": "Renewable energy sources such as solar and wind power have become increasingly important in recent decades. Governments around the world have invested heavily in these technologies because they produce far less pollution than traditional fossil fuels. As costs continue to decline, many countries are now able to generate a significant portion of their electricity from renewable sources, reducing their dependence on imported oil and gas."
+    },
+    {
+      "id": "p2",
+      "topic": "The Human Brain",
+      "text": "The human brain is a remarkable organ that contains approximately eighty-six billion neurons. These specialized cells communicate with each other through electrical and chemical signals, allowing us to think, feel, and remember. Scientists have only begun to understand how complex networks of neurons give rise to consciousness and emotions, making neuroscience one of the most fascinating fields of modern research."
+    },
+    {
+      "id": "p3",
+      "topic": "Urban Gardens",
+      "text": "Urban gardens have transformed neighborhoods in many major cities. By converting empty lots into green spaces, residents can grow fresh vegetables and build stronger community bonds. These gardens also help to improve air quality and reduce the urban heat island effect. Schools often partner with local gardens to teach children about nutrition and sustainability, showing that even small spaces can make a meaningful difference."
+    },
+    {
+      "id": "p4",
+      "topic": "Ancient Trade Routes",
+      "text": "The Silk Road was not a single road but a vast network of trade routes connecting China with the Mediterranean. For centuries, merchants traveled thousands of miles to exchange silk, spices, and precious metals. Along with goods, they also carried ideas, religions, and technologies. This constant exchange shaped civilizations on both ends of the route and influenced the course of world history in ways that are still visible today."
+    },
+    {
+      "id": "p5",
+      "topic": "Sleep and Memory",
+      "text": "Recent studies suggest that sleep plays a crucial role in how we form memories. During deep sleep, the brain replays the events of the day and transfers important information from short-term storage into long-term memory. Students who sleep well after studying tend to remember material better than those who stay up late. Clearly, rest is not a waste of time but an essential part of learning."
+    },
+    {
+      "id": "p6",
+      "topic": "Coral Reefs",
+      "text": "Coral reefs are often called the rainforests of the sea because they support an enormous diversity of life. Although they cover less than one percent of the ocean floor, they are home to roughly a quarter of all marine species. Unfortunately, rising sea temperatures and pollution have caused many reefs to bleach and die. Scientists are working to protect these delicate ecosystems before it is too late."
+    },
+    {
+      "id": "p7",
+      "topic": "Public Libraries",
+      "text": "Public libraries remain vital institutions in the digital age. In addition to lending books, they offer free access to computers, educational programs, and community events. For many people, the library is a quiet place to study or a safe space to meet neighbors. By adapting to the needs of modern users, libraries continue to serve as cornerstones of learning and civic life."
+    },
+    {
+      "id": "p8",
+      "topic": "The Coffee Trade",
+      "text": "Coffee is one of the most popular beverages in the world and also one of the most widely traded commodities. It is grown in more than seventy countries, mainly in regions near the equator. The journey from bean to cup involves farmers, exporters, roasters, and cafes. Small changes in climate can dramatically affect harvests, which is why coffee prices often fluctuate from year to year."
+    }
+  ],
+  "readAndSelect": [
+    {
+      "real": ["prosper", "diligent", "fatigue", "gracious", "sincere", "method", "justice", "brief"],
+      "fake": ["florpid", "banture", "clangip", "prenvik", "drantle", "fustic", "norbing"]
+    },
+    {
+      "real": ["venture", "certain", "notice", "fragile", "curious", "wonder", "gentle", "argue"],
+      "fake": ["quandle", "blisker", "groment", "wispant", "trinole", "flanter", "perbusk"]
+    },
+    {
+      "real": ["resolve", "absorb", "attend", "decide", "garden", "modern", "reward", "simple"],
+      "fake": ["torvend", "glomber", "pranick", "frindle", "skarten", "wompril", "crintle"]
+    },
+    {
+      "real": ["obtain", "gather", "handle", "invent", "master", "narrow", "quality", "rescue"],
+      "fake": ["vextorn", "plisker", "cromble", "brintal", "glarpin", "dustrop", "fremble"]
+    },
+    {
+      "real": ["surface", "travel", "unique", "vivid", "wander", "yearn", "zealous", "bargain"],
+      "fake": ["kantris", "molster", "prindle", "scrulp", "trimber", "vengrop", "wolbric"]
+    }
+  ]
+}
