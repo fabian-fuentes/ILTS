@@ -1,0 +1,64 @@
+{
+  "photos": [
+    {
+      "id": "ph1",
+      "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=640&auto=format",
+      "alt": "People hiking on a mountain trail at sunset",
+      "hints": ["mountain", "hiking", "sunset", "backpack"]
+    },
+    {
+      "id": "ph2",
+      "url": "https://images.unsplash.com/photo-1517722014278-c256a91a6fba?w=640&auto=format",
+      "alt": "Students studying together in a library",
+      "hints": ["library", "study", "books", "students"]
+    },
+    {
+      "id": "ph3",
+      "url": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=640&auto=format",
+      "alt": "A busy city street at night with neon lights",
+      "hints": ["city", "night", "traffic", "lights"]
+    },
+    {
+      "id": "ph4",
+      "url": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=640&auto=format",
+      "alt": "A family having breakfast around a kitchen table",
+      "hints": ["family", "breakfast", "kitchen", "morning"]
+    },
+    {
+      "id": "ph5",
+      "url": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=640&auto=format",
+      "alt": "A group of coworkers collaborating around a laptop",
+      "hints": ["office", "teamwork", "laptop", "meeting"]
+    },
+    {
+      "id": "ph6",
+      "url": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=640&auto=format",
+      "alt": "A tranquil lake surrounded by tall pine trees",
+      "hints": ["lake", "nature", "trees", "calm"]
+    },
+    {
+      "id": "ph7",
+      "url": "https://images.unsplash.com/photo-1526401485004-46910ecc8e51?w=640&auto=format",
+      "alt": "A child reading a book under a tree in a park",
+      "hints": ["child", "reading", "park", "tree"]
+    },
+    {
+      "id": "ph8",
+      "url": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=640&auto=format",
+      "alt": "A plate of colorful healthy food on a wooden table",
+      "hints": ["food", "meal", "healthy", "vegetables"]
+    }
+  ],
+  "essayPrompts": [
+    "Do you think technology has made people more isolated or more connected? Explain your opinion with examples.",
+    "Some people believe university education should be free for everyone. Do you agree? Why or why not?",
+    "Describe an experience that changed the way you think about the world.",
+    "Should governments invest more money in renewable energy? Give reasons and examples.",
+    "What is the most important quality a leader can have, and why?",
+    "How important is it to learn a second language in today's world?",
+    "Do you prefer living in a big city or a small town? Explain your reasons.",
+    "Many people say that physical books are better than e-books. What do you think?",
+    "Describe a tradition from your culture that you think is valuable.",
+    "If you could change one thing about your education so far, what would it be and why?"
+  ]
+}

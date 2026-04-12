@@ -1,0 +1,46 @@
+{
+  "sentences": [
+    "The library closes at nine o'clock on weekdays.",
+    "She studied hard for the final examination last night.",
+    "The weather forecast predicts heavy rain tomorrow afternoon.",
+    "He forgot to bring his umbrella to work this morning.",
+    "The meeting will be held in the conference room upstairs.",
+    "Please remember to turn off the lights when you leave.",
+    "The train to the city departs every twenty minutes.",
+    "She has been learning Spanish for almost two years.",
+    "The museum offers free admission on the first Sunday.",
+    "We need more flour and sugar for the birthday cake.",
+    "The children played happily in the park all afternoon.",
+    "He writes articles about history for a popular magazine.",
+    "The restaurant near the station serves excellent seafood.",
+    "Our flight has been delayed because of the storm.",
+    "She prefers drinking coffee without milk or sugar.",
+    "The new bridge connects the two sides of the river.",
+    "I usually go jogging early in the morning before breakfast.",
+    "They built a small wooden cabin by the lake.",
+    "The teacher explained the difficult grammar rule carefully.",
+    "She bought a beautiful red dress for the wedding."
+  ],
+  "wordLists": [
+    {
+      "real": ["bicycle", "journey", "harvest", "memory", "pleasant", "sincere"],
+      "fake": ["drantle", "flisker", "grombit", "plaxton"]
+    },
+    {
+      "real": ["garden", "whisper", "forest", "puzzle", "bridge", "kitchen"],
+      "fake": ["trentip", "volmer", "kraspin", "friffle"]
+    },
+    {
+      "real": ["honest", "winter", "tropical", "mirror", "pocket", "silent"],
+      "fake": ["glorbit", "nirken", "wrumble", "blinster"]
+    },
+    {
+      "real": ["railway", "cousin", "delight", "market", "chapter", "signal"],
+      "fake": ["pelgrin", "tromble", "flanker", "wisporn"]
+    },
+    {
+      "real": ["melody", "promise", "lantern", "bakery", "shoulder", "hollow"],
+      "fake": ["krispel", "drombit", "flextle", "warnish"]
+    }
+  ]
+}

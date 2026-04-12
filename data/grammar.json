@@ -1,0 +1,122 @@
+[
+  {
+    "text": "If I ___ more time, I would travel the world.",
+    "options": ["have", "had", "will have", "having"],
+    "answer": "had",
+    "explain": "Second conditional: 'If' + past simple → 'would' + base form."
+  },
+  {
+    "text": "She has been working here ___ 2015.",
+    "options": ["since", "for", "from", "during"],
+    "answer": "since",
+    "explain": "'Since' is used with a point in time; 'for' with durations."
+  },
+  {
+    "text": "By the time we arrived, the movie ___ started.",
+    "options": ["has", "had", "have", "was"],
+    "answer": "had",
+    "explain": "Past perfect describes an action completed before another past action."
+  },
+  {
+    "text": "He is the best player ___ our team.",
+    "options": ["at", "in", "on", "of"],
+    "answer": "in",
+    "explain": "We say 'the best in a group/team/class'."
+  },
+  {
+    "text": "I'm not used to ___ up so early.",
+    "options": ["get", "getting", "got", "gotten"],
+    "answer": "getting",
+    "explain": "'Used to + -ing' means being accustomed to something."
+  },
+  {
+    "text": "She speaks English ___ than her brother.",
+    "options": ["good", "well", "better", "best"],
+    "answer": "better",
+    "explain": "Comparative form of the adverb 'well' is 'better'."
+  },
+  {
+    "text": "I wish I ___ how to play the guitar.",
+    "options": ["know", "knew", "known", "knowing"],
+    "answer": "knew",
+    "explain": "'Wish' about present situations uses the past simple."
+  },
+  {
+    "text": "The report ___ by the manager tomorrow.",
+    "options": ["will review", "will be reviewed", "reviews", "is reviewing"],
+    "answer": "will be reviewed",
+    "explain": "Passive voice in the future: will + be + past participle."
+  },
+  {
+    "text": "Neither my sister ___ I enjoy horror films.",
+    "options": ["or", "nor", "and", "but"],
+    "answer": "nor",
+    "explain": "Use 'neither...nor' as a correlative pair."
+  },
+  {
+    "text": "The children were ___ tired to finish their homework.",
+    "options": ["so", "too", "very", "enough"],
+    "answer": "too",
+    "explain": "'Too + adjective + to + verb' expresses excess preventing an action."
+  },
+  {
+    "text": "I look forward ___ you soon.",
+    "options": ["to see", "to seeing", "seeing", "for seeing"],
+    "answer": "to seeing",
+    "explain": "'Look forward to' is followed by a gerund (-ing form)."
+  },
+  {
+    "text": "This is the man ___ car was stolen.",
+    "options": ["who", "whom", "whose", "which"],
+    "answer": "whose",
+    "explain": "'Whose' shows possession with people."
+  },
+  {
+    "text": "We ___ lived in this city for three years.",
+    "options": ["have", "has", "had", "having"],
+    "answer": "have",
+    "explain": "Present perfect with 'we' takes 'have'."
+  },
+  {
+    "text": "If you heat water to 100°C, it ___.",
+    "options": ["boiled", "will boil", "boils", "would boil"],
+    "answer": "boils",
+    "explain": "Zero conditional describes general truths with present simple in both clauses."
+  },
+  {
+    "text": "There isn't ___ milk left in the fridge.",
+    "options": ["many", "much", "few", "some"],
+    "answer": "much",
+    "explain": "'Much' is used with uncountable nouns in negatives."
+  },
+  {
+    "text": "She asked me where ___.",
+    "options": ["I live", "do I live", "I lived", "did I live"],
+    "answer": "I lived",
+    "explain": "Indirect questions use normal word order and backshift tense."
+  },
+  {
+    "text": "The museum ___ every day except Mondays.",
+    "options": ["open", "opens", "is opened", "opening"],
+    "answer": "opens",
+    "explain": "Simple present for routine schedules."
+  },
+  {
+    "text": "I haven't seen her ___ last week.",
+    "options": ["for", "since", "from", "in"],
+    "answer": "since",
+    "explain": "'Since' marks the starting point of a continuing period."
+  },
+  {
+    "text": "He ___ to the gym every morning before work.",
+    "options": ["go", "goes", "going", "is going"],
+    "answer": "goes",
+    "explain": "Simple present with third person singular adds -s/-es."
+  },
+  {
+    "text": "I'd rather you ___ smoke in the house.",
+    "options": ["don't", "didn't", "won't", "not"],
+    "answer": "didn't",
+    "explain": "'I'd rather' + subject + past simple expresses a preference."
+  }
+]
