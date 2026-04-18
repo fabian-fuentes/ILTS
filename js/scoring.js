@@ -1,6 +1,6 @@
-// scoring.js — Cálculo de puntaje DET estimado (10–160) a partir de accuracies.
-// Mapeo lineal simple: accuracy 0 -> 10, accuracy 1 -> 160.
-// Se pondera cada sección por igual. Si una sección no tiene datos se ignora.
+// scoring.js — Estimate a DET score (10–160) from section accuracies.
+// Simple linear mapping: accuracy 0 → 10, accuracy 1 → 160.
+// Each section with data is weighted equally; sections without data are ignored.
 
 import { getProgress } from './storage.js';
 
@@ -20,13 +20,13 @@ export function accuracyToDet(acc) {
 }
 
 export function detToBand(det) {
-    // Bandas aproximadas publicadas por Duolingo
-    if (det >= 140) return 'C2 — Avanzado alto';
-    if (det >= 120) return 'C1 — Avanzado';
-    if (det >= 95) return 'B2 — Intermedio alto';
-    if (det >= 75) return 'B1 — Intermedio';
-    if (det >= 55) return 'A2 — Básico';
-    return 'A1 — Principiante';
+    // Approximate bands published by Duolingo.
+    if (det >= 140) return 'C2 — Advanced high';
+    if (det >= 120) return 'C1 — Advanced';
+    if (det >= 95) return 'B2 — Upper intermediate';
+    if (det >= 75) return 'B1 — Intermediate';
+    if (det >= 55) return 'A2 — Elementary';
+    return 'A1 — Beginner';
 }
 
 export function estimateDetScore(state = getProgress()) {
@@ -35,7 +35,7 @@ export function estimateDetScore(state = getProgress()) {
     for (const sec of SECTIONS) {
         const arr = (state.scores && state.scores[sec]) || [];
         if (!arr.length) continue;
-        // Promedio de las últimas 5 entradas para que responda al progreso reciente
+        // Average the last 5 entries so the score tracks recent performance.
         const recent = arr.slice(-5);
         const avg = recent.reduce((a, b) => a + b, 0) / recent.length;
         accs.push(avg);

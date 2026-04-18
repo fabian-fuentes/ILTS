@@ -598,6 +598,42 @@ a { color: var(--primary-2); }
   font-weight: 500;
 }
 
+.bento-tile .tile-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+/* =============================================================
+   Level badge (CEFR B1..C2)
+   ============================================================= */
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--on-primary);
+  background: var(--grad-hero);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px -4px rgba(124, 92, 255, 0.45);
+  white-space: nowrap;
+  min-width: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.level-badge-lg {
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
 @media (max-width: 900px) {
   .bento { grid-template-columns: repeat(4, 1fr); }
   .bento-hero { grid-column: span 4; grid-row: span 1; }
