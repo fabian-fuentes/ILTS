@@ -1,4 +1,4 @@
-// app.js — Bootstrap + hash router.
+// app.js — Bootstrap + hash router + theme toggle.
 // Cada módulo exporta render(container, params?) y opcionalmente destroy().
 
 import { ensureVoiceLoaded } from './tts.js';
@@ -51,7 +51,49 @@ async function handleRoute() {
     window.scrollTo(0, 0);
 }
 
+// ---------- Theme ----------
+const THEME_KEY = 'ilts.theme';
+
+function getStoredTheme() {
+    try { return localStorage.getItem(THEME_KEY); } catch { return null; }
+}
+
+function setStoredTheme(value) {
+    try { localStorage.setItem(THEME_KEY, value); } catch { /* no-op */ }
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const meta = document.querySelector('meta[name="theme-color"]:not([media])');
+    if (meta) meta.setAttribute('content', theme === 'light' ? '#f6f7fb' : '#0a0a14');
+}
+
+function initTheme() {
+    const stored = getStoredTheme();
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const initial = stored || (prefersLight ? 'light' : 'dark');
+    applyTheme(initial);
+
+    // Follow system changes only if user hasn't explicitly chosen
+    if (!stored && window.matchMedia) {
+        const mq = window.matchMedia('(prefers-color-scheme: light)');
+        mq.addEventListener?.('change', e => {
+            if (!getStoredTheme()) applyTheme(e.matches ? 'light' : 'dark');
+        });
+    }
+
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            applyTheme(next);
+            setStoredTheme(next);
+        });
+    }
+}
+
 function init() {
+    initTheme();
     touchStreak();
     ensureVoiceLoaded();
     window.addEventListener('hashchange', handleRoute);
