@@ -16,6 +16,16 @@ Runs entirely in your browser. No sign-up, no tracking, no backend.
 
 ---
 
+## Screenshots
+
+|                          Dark — Dashboard                          |                       Light — Dashboard                       |                       Mobile                       |
+| :----------------------------------------------------------------: | :-----------------------------------------------------------: | :------------------------------------------------: |
+|             ![Dashboard dark](docs/screenshots/hero.png)           |     ![Dashboard light](docs/screenshots/dashboard-light.png)  |    ![Mobile](docs/screenshots/mobile.png)          |
+
+|                       Vocabulary                       |                      Read & Complete                       |                      Grammar Blanks                       |
+| :----------------------------------------------------: | :--------------------------------------------------------: | :-------------------------------------------------------: |
+|     ![Vocabulary](docs/screenshots/vocabulary.png)     |    ![Read & Complete](docs/screenshots/read-complete.png)  |     ![Grammar Blanks](docs/screenshots/fill-blanks.png)   |
+
 ## About
 
 The **Duolingo English Test (DET)** is a 160-point online English proficiency exam accepted by 5000+ universities. It costs money, and most published prep material is locked behind paywalls.
