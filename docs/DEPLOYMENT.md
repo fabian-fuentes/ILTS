@@ -9,17 +9,30 @@ This document covers four common hosts. Pick the one you already have an account
 - A GitHub account (if you want Pages, or most one-click deployers)
 - Optional: Node 18+ if you want to use `vercel`, `netlify-cli`, or `wrangler`
 
-## GitHub Pages (zero config)
+## GitHub Pages (recommended — already wired up)
 
-1. Push the repo to GitHub
-2. Settings → Pages
-3. Under "Build and deployment":
-   - **Source:** Deploy from a branch
-   - **Branch:** `main`
-   - **Folder:** `/ (root)`
-4. Save. Your site will be live at `https://<user>.github.io/<repo>/` within a minute or two.
+This repo ships with a GitHub Actions workflow at [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) that deploys every push to `main` to GitHub Pages.
 
-No workflow file needed. If you prefer Actions-based deploys, the `Deploy static content to Pages` starter workflow works with zero edits.
+**One-time setup:**
+
+1. Push to `main` (or merge a PR into it)
+2. Open **Settings → Pages**
+3. Under **Build and deployment**:
+   - **Source:** `GitHub Actions`
+4. That's it. The next push to `main` will publish to `https://<user>.github.io/<repo>/`.
+
+The workflow:
+
+- Triggers on `push` to `main` and on manual `workflow_dispatch`
+- Has the right `pages: write` and `id-token: write` permissions
+- Uploads the entire repo (no build step) and deploys via the official `actions/deploy-pages@v4`
+- Uses a `pages` concurrency group so a flurry of pushes don't fight each other
+
+A `.nojekyll` file at the repo root tells Pages to skip Jekyll processing, so files starting with `_` are served as-is and the static layout is preserved exactly.
+
+### Alternative: deploy-from-branch (no workflow)
+
+If you'd rather not use Actions, delete `.github/workflows/pages.yml` and instead pick **Settings → Pages → Source: Deploy from a branch → main / `/` (root)**. Same outcome, different mechanism.
 
 ## Netlify
 

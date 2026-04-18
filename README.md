@@ -5,10 +5,14 @@
 **A free, open-source prep app for the Duolingo English Test.**
 Runs entirely in your browser. No sign-up, no tracking, no backend.
 
+[![Live demo](https://img.shields.io/badge/live-demo-7c5cff.svg)](https://fabian-fuentes.github.io/ILTS/)
+[![Deploy to GitHub Pages](https://github.com/fabian-fuentes/ILTS/actions/workflows/pages.yml/badge.svg)](https://github.com/fabian-fuentes/ILTS/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-7c5cff.svg)](LICENSE)
 [![Built with Vanilla JS](https://img.shields.io/badge/built%20with-vanilla%20JS-22d3ee.svg)](#tech-stack)
 [![No Build](https://img.shields.io/badge/build-none-f59e0b.svg)](#quickstart)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-10b981.svg)](CONTRIBUTING.md)
+
+🌐 **Try it live:** <https://fabian-fuentes.github.io/ILTS/>
 
 ![ILTS dashboard screenshot](docs/screenshots/hero.png)
 

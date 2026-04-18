@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `.github/workflows/pages.yml` — GitHub Actions workflow that deploys the static site to GitHub Pages on every push to `main`
+- `.nojekyll` — disables Jekyll on Pages so the repo is served as-is
+- README live-demo badge + URL pointing at `https://fabian-fuentes.github.io/ILTS/`
+- `docs/DEPLOYMENT.md` updated to make the Actions workflow the recommended path
+
 ## [0.2.0] — 2026-04-18
 
 ### Added
