@@ -34,21 +34,22 @@ Runs entirely in your browser. No sign-up, no tracking, no backend.
 
 The **Duolingo English Test (DET)** is a 160-point online English proficiency exam accepted by 5000+ universities. It costs money, and most published prep material is locked behind paywalls.
 
-**ILTS** is a browser-based study tool that lets you practice every DET question type, track your progress with spaced repetition, and get an estimated DET score based on your accuracy — all stored locally in your browser. The UI is in Spanish, targeted at Latin American students preparing for university admissions.
+**ILTS** is a browser-based study tool that lets you practice every DET question type, track your progress with spaced repetition, and get an estimated DET score based on your accuracy — all stored locally in your browser. **Adaptive modules** (vocabulary and grammar) adjust their difficulty in real time: when you answer well they level you up (B1 → B2 → C1 → C2) and pull harder material; when you struggle they ease you down so momentum is never lost.
 
 > ⚠️ **Disclaimer:** ILTS is an independent study aid. It is not affiliated with or endorsed by Duolingo. Estimated scores are approximations based on accuracy and should not be treated as official predictions.
 
 ## Features
 
-- 📚 **Vocabulary flashcards** — 130+ academic words (B1–C1) with Leitner-box spaced repetition
+- 📚 **Adaptive vocabulary flashcards** — 210+ academic words (B1 → C2) with Leitner-box spaced repetition; the deck auto-filters to your current level
+- ✏️ **Adaptive grammar blanks** — 46+ multiple-choice items tagged B1 to C2; the session drifts up or down based on your accuracy
 - 📖 **Read & Complete** — 3-minute cloze passages where you fill in missing letters
 - 🔤 **Read & Select** — 75-second real-vs-fake English word identification
-- ✏️ **Grammar Blanks** — 10-question multiple-choice fill-in-the-blank drills
 - 🎧 **Listen & Type** — Transcribe full sentences read by Web Speech API TTS
 - 👂 **Listen & Select** — 90-second audio-based real-word identification
 - 🖼️ **Write About Photo** — 60-second image description prompts (Unsplash)
 - 📝 **Writing Sample** — 5-minute essay practice with real DET-style prompts
 - 🏁 **Mock Test** — 6-question mixed simulation with DET score estimate and CEFR band (A1–C2)
+- 📈 **Adaptive difficulty** — the app levels you up at ≥ 80 % accuracy and down at ≤ 40 %, so you always practice at the edge of your comfort zone
 - 🔥 **Streak tracking & progress persistence** — everything saved to `localStorage`
 - 🌓 **Dark/light theme** with system-preference detection
 - ♿ **Accessible** — keyboard navigation, focus rings, `prefers-reduced-motion` respected
@@ -136,6 +137,18 @@ The dashboard score averages the last **5 attempts per section**, then averages 
 | 10–54     | A1   | Beginner                    |
 
 See [`js/scoring.js`](js/scoring.js) for the implementation.
+
+## Adaptive difficulty
+
+Vocabulary and Grammar Blanks track a **current CEFR level** per section (`state.levels.vocabulary`, `state.levels.fillBlanks`, stored in `localStorage['det_progress_v1']`). After every session:
+
+```
+if session accuracy ≥ 0.80 → level up   (B1 → B2 → C1 → C2)
+if session accuracy ≤ 0.40 → level down (C2 → C1 → B2 → B1)
+otherwise                    → stay
+```
+
+The next session's deck is filtered to the new level; if the pool is thin, it spills over to adjacent levels so you always get a full session. A small badge on each adaptive tile (and inside the exercise header) shows the current level at a glance.
 
 ## Roadmap
 

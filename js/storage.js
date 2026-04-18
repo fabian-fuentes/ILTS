@@ -1,15 +1,22 @@
-// storage.js — Wrapper de localStorage para persistir el progreso del estudiante.
-// Estructura:
+// storage.js — localStorage wrapper that persists learner progress.
+// Schema (key: det_progress_v1):
 // {
 //   streakDays, lastStudied,
 //   vocabulary: { [word]: { box: 1..5, nextReview: ISO, seen: n } },
-//   scores: { readComplete: [0.8,...], readSelect: [...], fillBlanks: [...],
+//   scores: { readComplete: [0.8, ...], readSelect: [...], fillBlanks: [...],
 //             listenType: [...], listenSelect: [...], writePhoto: [...], writingSample: [...],
 //             mockTest: [{ score: 110, at: ISO }] },
+//   levels: { vocabulary: 'B1'|'B2'|'C1'|'C2', fillBlanks: 'B1'|... },
 //   essays: [{ type, prompt, text, wordCount, date }]
 // }
 
 const KEY = 'det_progress_v1';
+
+// Adaptive levels
+export const LEVELS = ['B1', 'B2', 'C1', 'C2'];
+export const DEFAULT_LEVEL = 'B1';
+export const LEVEL_UP_THRESHOLD = 0.8;
+export const LEVEL_DOWN_THRESHOLD = 0.4;
 
 const defaultState = () => ({
     streakDays: 0,
@@ -24,6 +31,10 @@ const defaultState = () => ({
         writePhoto: [],
         writingSample: [],
     },
+    levels: {
+        vocabulary: DEFAULT_LEVEL,
+        fillBlanks: DEFAULT_LEVEL,
+    },
     mockTestHistory: [],
     essays: [],
 });
@@ -33,8 +44,14 @@ export function getProgress() {
         const raw = localStorage.getItem(KEY);
         if (!raw) return defaultState();
         const parsed = JSON.parse(raw);
-        // Merge con defaults para tolerar versiones anteriores
-        return { ...defaultState(), ...parsed, scores: { ...defaultState().scores, ...(parsed.scores || {}) } };
+        // Merge with defaults to tolerate older versions (forward-compatible).
+        const def = defaultState();
+        return {
+            ...def,
+            ...parsed,
+            scores: { ...def.scores, ...(parsed.scores || {}) },
+            levels: { ...def.levels, ...(parsed.levels || {}) },
+        };
     } catch (e) {
         console.warn('storage: parse error, resetting', e);
         return defaultState();
@@ -61,7 +78,7 @@ export function pushScore(section, accuracy) {
     updateProgress(state => {
         if (!state.scores[section]) state.scores[section] = [];
         state.scores[section].push(Number(accuracy.toFixed(3)));
-        // Mantener máximo 20 entradas por sección
+        // Keep at most 20 entries per section.
         if (state.scores[section].length > 20) state.scores[section].shift();
     });
 }
@@ -77,6 +94,38 @@ export function averageScore(section) {
     const arr = state.scores[section] || [];
     if (!arr.length) return null;
     return arr.reduce((a, b) => a + b, 0) / arr.length;
+}
+
+// --- Adaptive levels ---
+export function getLevel(section) {
+    const state = getProgress();
+    return (state.levels && state.levels[section]) || DEFAULT_LEVEL;
+}
+
+/**
+ * Adjust the adaptive level of a section based on a session accuracy (0..1).
+ * Returns { before, after, direction } so the UI can celebrate promotions.
+ */
+export function adjustLevel(section, accuracy) {
+    let before = DEFAULT_LEVEL;
+    let after = DEFAULT_LEVEL;
+    let direction = 'stay';
+    updateProgress(state => {
+        if (!state.levels) state.levels = {};
+        before = state.levels[section] || DEFAULT_LEVEL;
+        const idx = LEVELS.indexOf(before);
+        let nextIdx = idx;
+        if (accuracy >= LEVEL_UP_THRESHOLD && idx < LEVELS.length - 1) {
+            nextIdx = idx + 1;
+            direction = 'up';
+        } else if (accuracy <= LEVEL_DOWN_THRESHOLD && idx > 0) {
+            nextIdx = idx - 1;
+            direction = 'down';
+        }
+        after = LEVELS[nextIdx];
+        state.levels[section] = after;
+    });
+    return { before, after, direction };
 }
 
 // --- Streak ---
@@ -114,7 +163,7 @@ export function recordVocab(word, known) {
         } else {
             entry.box = 1;
         }
-        // Intervalos en días según la caja (Leitner simplificado)
+        // Leitner intervals in days.
         const intervals = { 1: 1, 2: 2, 3: 4, 4: 7, 5: 14 };
         const next = new Date();
         next.setDate(next.getDate() + intervals[entry.box]);

@@ -49,6 +49,7 @@ An array of multiple-choice fill-in-the-blank items.
 ```json
 [
   {
+    "level": "B2",
     "text": "If I ___ more time, I would travel the world.",
     "options": ["have", "had", "will have", "having"],
     "answer": "had",
@@ -59,12 +60,13 @@ An array of multiple-choice fill-in-the-blank items.
 
 | Field     | Type              | Required | Description                                                                 |
 |-----------|-------------------|----------|-----------------------------------------------------------------------------|
+| `level`   | string            | yes      | CEFR level: `B1` \| `B2` \| `C1` \| `C2`. Used by the adaptive filter       |
 | `text`    | string            | yes      | Sentence with `___` marking the blank (exactly one per item)                |
 | `options` | array of strings  | yes      | 3–4 choices; must include the correct answer                                |
 | `answer`  | string            | yes      | Must match one of `options` exactly (case-sensitive)                        |
 | `explain` | string            | yes      | Short explanation shown as feedback after answering                         |
 
-**How to add:** append an object. Keep `options` order random (the module shows them in array order — shuffling is done at render time).
+**How to add:** append an object with the appropriate `level`. Keep at least 10 items per level so a full session can be built without spillover. Shuffling happens at render time.
 
 ---
 

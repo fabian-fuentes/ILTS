@@ -1,122 +1,48 @@
 [
-  {
-    "text": "If I ___ more time, I would travel the world.",
-    "options": ["have", "had", "will have", "having"],
-    "answer": "had",
-    "explain": "Second conditional: 'If' + past simple → 'would' + base form."
-  },
-  {
-    "text": "She has been working here ___ 2015.",
-    "options": ["since", "for", "from", "during"],
-    "answer": "since",
-    "explain": "'Since' is used with a point in time; 'for' with durations."
-  },
-  {
-    "text": "By the time we arrived, the movie ___ started.",
-    "options": ["has", "had", "have", "was"],
-    "answer": "had",
-    "explain": "Past perfect describes an action completed before another past action."
-  },
-  {
-    "text": "He is the best player ___ our team.",
-    "options": ["at", "in", "on", "of"],
-    "answer": "in",
-    "explain": "We say 'the best in a group/team/class'."
-  },
-  {
-    "text": "I'm not used to ___ up so early.",
-    "options": ["get", "getting", "got", "gotten"],
-    "answer": "getting",
-    "explain": "'Used to + -ing' means being accustomed to something."
-  },
-  {
-    "text": "She speaks English ___ than her brother.",
-    "options": ["good", "well", "better", "best"],
-    "answer": "better",
-    "explain": "Comparative form of the adverb 'well' is 'better'."
-  },
-  {
-    "text": "I wish I ___ how to play the guitar.",
-    "options": ["know", "knew", "known", "knowing"],
-    "answer": "knew",
-    "explain": "'Wish' about present situations uses the past simple."
-  },
-  {
-    "text": "The report ___ by the manager tomorrow.",
-    "options": ["will review", "will be reviewed", "reviews", "is reviewing"],
-    "answer": "will be reviewed",
-    "explain": "Passive voice in the future: will + be + past participle."
-  },
-  {
-    "text": "Neither my sister ___ I enjoy horror films.",
-    "options": ["or", "nor", "and", "but"],
-    "answer": "nor",
-    "explain": "Use 'neither...nor' as a correlative pair."
-  },
-  {
-    "text": "The children were ___ tired to finish their homework.",
-    "options": ["so", "too", "very", "enough"],
-    "answer": "too",
-    "explain": "'Too + adjective + to + verb' expresses excess preventing an action."
-  },
-  {
-    "text": "I look forward ___ you soon.",
-    "options": ["to see", "to seeing", "seeing", "for seeing"],
-    "answer": "to seeing",
-    "explain": "'Look forward to' is followed by a gerund (-ing form)."
-  },
-  {
-    "text": "This is the man ___ car was stolen.",
-    "options": ["who", "whom", "whose", "which"],
-    "answer": "whose",
-    "explain": "'Whose' shows possession with people."
-  },
-  {
-    "text": "We ___ lived in this city for three years.",
-    "options": ["have", "has", "had", "having"],
-    "answer": "have",
-    "explain": "Present perfect with 'we' takes 'have'."
-  },
-  {
-    "text": "If you heat water to 100°C, it ___.",
-    "options": ["boiled", "will boil", "boils", "would boil"],
-    "answer": "boils",
-    "explain": "Zero conditional describes general truths with present simple in both clauses."
-  },
-  {
-    "text": "There isn't ___ milk left in the fridge.",
-    "options": ["many", "much", "few", "some"],
-    "answer": "much",
-    "explain": "'Much' is used with uncountable nouns in negatives."
-  },
-  {
-    "text": "She asked me where ___.",
-    "options": ["I live", "do I live", "I lived", "did I live"],
-    "answer": "I lived",
-    "explain": "Indirect questions use normal word order and backshift tense."
-  },
-  {
-    "text": "The museum ___ every day except Mondays.",
-    "options": ["open", "opens", "is opened", "opening"],
-    "answer": "opens",
-    "explain": "Simple present for routine schedules."
-  },
-  {
-    "text": "I haven't seen her ___ last week.",
-    "options": ["for", "since", "from", "in"],
-    "answer": "since",
-    "explain": "'Since' marks the starting point of a continuing period."
-  },
-  {
-    "text": "He ___ to the gym every morning before work.",
-    "options": ["go", "goes", "going", "is going"],
-    "answer": "goes",
-    "explain": "Simple present with third person singular adds -s/-es."
-  },
-  {
-    "text": "I'd rather you ___ smoke in the house.",
-    "options": ["don't", "didn't", "won't", "not"],
-    "answer": "didn't",
-    "explain": "'I'd rather' + subject + past simple expresses a preference."
-  }
+  {"level": "B1", "text": "She has been working here ___ 2015.", "options": ["since", "for", "from", "during"], "answer": "since", "explain": "'Since' introduces a point in time; 'for' takes a duration."},
+  {"level": "B1", "text": "He is the best player ___ our team.", "options": ["at", "in", "on", "of"], "answer": "in", "explain": "We say 'the best in a group/team/class'."},
+  {"level": "B1", "text": "She speaks English ___ than her brother.", "options": ["good", "well", "better", "best"], "answer": "better", "explain": "Comparative of the adverb 'well' is 'better'."},
+  {"level": "B1", "text": "The children were ___ tired to finish their homework.", "options": ["so", "too", "very", "enough"], "answer": "too", "explain": "'Too + adjective + to + verb' expresses excess preventing an action."},
+  {"level": "B1", "text": "We ___ lived in this city for three years.", "options": ["have", "has", "had", "having"], "answer": "have", "explain": "Present perfect with 'we' takes 'have'."},
+  {"level": "B1", "text": "If you heat water to 100°C, it ___.", "options": ["boiled", "will boil", "boils", "would boil"], "answer": "boils", "explain": "Zero conditional: present simple in both clauses for general truths."},
+  {"level": "B1", "text": "There isn't ___ milk left in the fridge.", "options": ["many", "much", "few", "some"], "answer": "much", "explain": "'Much' goes with uncountable nouns in negatives."},
+  {"level": "B1", "text": "The museum ___ every day except Mondays.", "options": ["open", "opens", "is opened", "opening"], "answer": "opens", "explain": "Simple present for routines and schedules."},
+  {"level": "B1", "text": "I haven't seen her ___ last week.", "options": ["for", "since", "from", "in"], "answer": "since", "explain": "'Since' marks the starting point of a continuing period."},
+  {"level": "B1", "text": "He ___ to the gym every morning before work.", "options": ["go", "goes", "going", "is going"], "answer": "goes", "explain": "Third-person singular takes -s/-es in simple present."},
+  {"level": "B1", "text": "She ___ dinner when I called her yesterday.", "options": ["cook", "cooked", "was cooking", "has cooked"], "answer": "was cooking", "explain": "Past continuous for an action in progress at a past moment."},
+  {"level": "B1", "text": "There ___ a lot of traffic this morning.", "options": ["is", "are", "was", "were"], "answer": "was", "explain": "'Traffic' is uncountable and singular; past form is 'was'."},
+  {"level": "B2", "text": "If I ___ more time, I would travel the world.", "options": ["have", "had", "will have", "having"], "answer": "had", "explain": "Second conditional: 'If' + past simple → 'would' + base form."},
+  {"level": "B2", "text": "By the time we arrived, the movie ___ started.", "options": ["has", "had", "have", "was"], "answer": "had", "explain": "Past perfect for an action completed before another past action."},
+  {"level": "B2", "text": "I'm not used to ___ up so early.", "options": ["get", "getting", "got", "gotten"], "answer": "getting", "explain": "'Used to + -ing' means being accustomed to something."},
+  {"level": "B2", "text": "I wish I ___ how to play the guitar.", "options": ["know", "knew", "known", "knowing"], "answer": "knew", "explain": "Wishes about present situations use the past simple."},
+  {"level": "B2", "text": "The report ___ by the manager tomorrow.", "options": ["will review", "will be reviewed", "reviews", "is reviewing"], "answer": "will be reviewed", "explain": "Future passive: will + be + past participle."},
+  {"level": "B2", "text": "Neither my sister ___ I enjoy horror films.", "options": ["or", "nor", "and", "but"], "answer": "nor", "explain": "'Neither...nor' is a correlative pair for negative coordination."},
+  {"level": "B2", "text": "I look forward ___ you soon.", "options": ["to see", "to seeing", "seeing", "for seeing"], "answer": "to seeing", "explain": "'Look forward to' is followed by a gerund."},
+  {"level": "B2", "text": "This is the man ___ car was stolen.", "options": ["who", "whom", "whose", "which"], "answer": "whose", "explain": "'Whose' shows possession in relative clauses."},
+  {"level": "B2", "text": "She asked me where ___.", "options": ["I live", "do I live", "I lived", "did I live"], "answer": "I lived", "explain": "Indirect questions use normal word order and backshift the tense."},
+  {"level": "B2", "text": "He denied ___ the vase.", "options": ["to break", "breaking", "break", "broken"], "answer": "breaking", "explain": "'Deny' is followed by a gerund."},
+  {"level": "B2", "text": "The solution ___ at the conference was widely adopted.", "options": ["proposing", "proposed", "which propose", "to propose"], "answer": "proposed", "explain": "Reduced passive relative clause: 'which was proposed' → 'proposed'."},
+  {"level": "B2", "text": "You ___ have told me you were coming — I would have cooked!", "options": ["could", "should", "must", "ought"], "answer": "should", "explain": "'Should have + past participle' expresses past regret or obligation not fulfilled."},
+  {"level": "C1", "text": "I'd rather you ___ smoke in the house.", "options": ["don't", "didn't", "won't", "not"], "answer": "didn't", "explain": "'I'd rather' + subject + past simple expresses a preference about someone else."},
+  {"level": "C1", "text": "Hardly ___ I sat down when the phone rang.", "options": ["did", "had", "have", "was"], "answer": "had", "explain": "Negative adverb inversion: 'Hardly + had + subject + past participle'."},
+  {"level": "C1", "text": "Only then ___ the magnitude of the problem.", "options": ["he realized", "did he realize", "he did realize", "realized he"], "answer": "did he realize", "explain": "'Only + adverbial' at the front of a clause triggers subject-auxiliary inversion."},
+  {"level": "C1", "text": "If I had taken the other job, I ___ in Paris now.", "options": ["would live", "would be living", "would have lived", "lived"], "answer": "would be living", "explain": "Mixed conditional: past condition with present result uses 'would + be + -ing'."},
+  {"level": "C1", "text": "She insisted that he ___ on time.", "options": ["is", "was", "be", "were"], "answer": "be", "explain": "After verbs of insistence, English uses the base (subjunctive) form."},
+  {"level": "C1", "text": "___ for her help, I wouldn't have finished on time.", "options": ["If not", "Had it not been", "Were it not", "Without"], "answer": "Had it not been", "explain": "Inverted third conditional: 'Had + subject + (not) + past participle'."},
+  {"level": "C1", "text": "The painting ___ to be worth a fortune.", "options": ["is said", "says", "is saying", "said"], "answer": "is said", "explain": "Reporting passive: 'subject + is said + to-infinitive'."},
+  {"level": "C1", "text": "It is high time we ___ this issue seriously.", "options": ["take", "took", "have taken", "are taking"], "answer": "took", "explain": "'It is (high) time' + past simple expresses that an action is overdue."},
+  {"level": "C1", "text": "He talks as if he ___ everything already.", "options": ["knows", "knew", "has known", "would know"], "answer": "knew", "explain": "'As if' + past simple signals unreality or distance from fact."},
+  {"level": "C1", "text": "No sooner ___ the door opened than the dog ran out.", "options": ["did", "had", "has", "was"], "answer": "had", "explain": "'No sooner + had + subject + past participle + than...' — classic inversion."},
+  {"level": "C1", "text": "She would rather her colleagues ___ credit her work openly.", "options": ["do", "did", "would", "will"], "answer": "did", "explain": "'Would rather + subject + past simple' for present/future preferences about others."},
+  {"level": "C1", "text": "___ his experience, he couldn't solve the puzzle.", "options": ["Despite of", "For all", "Even though", "Although"], "answer": "For all", "explain": "'For all' + noun phrase is a C1 concessive construction meaning 'despite'."},
+  {"level": "C2", "text": "Were he ___ find out, there would be serious repercussions.", "options": ["would", "to", "should", "about"], "answer": "to", "explain": "Inverted hypothetical: 'Were + subject + to + infinitive' (= 'if he were to find out')."},
+  {"level": "C2", "text": "Little ___ that the decision would change everything.", "options": ["he knew", "did he know", "he did know", "knew he"], "answer": "did he know", "explain": "Fronted 'little' takes subject-auxiliary inversion for emphatic negation."},
+  {"level": "C2", "text": "Not until the results were published ___ the truth.", "options": ["we realized", "realized we", "did we realize", "had we realized"], "answer": "did we realize", "explain": "Fronted 'Not until + clause' triggers do-support inversion in the main clause."},
+  {"level": "C2", "text": "Such ___ her reluctance that she refused to enter the room.", "options": ["is", "was", "has been", "would be"], "answer": "was", "explain": "Fronted 'Such + BE' inversion for emphasis: 'Such was X that…'."},
+  {"level": "C2", "text": "He came across ___ arrogant, though he didn't mean to.", "options": ["to be", "as", "like", "as being"], "answer": "as", "explain": "'Come across as + adjective' is the fixed collocation for making an impression."},
+  {"level": "C2", "text": "The policy, ___ well-intended, proved disastrous in practice.", "options": ["although", "however", "albeit", "despite"], "answer": "albeit", "explain": "'Albeit' is a formal single-word conjunction meaning 'although'."},
+  {"level": "C2", "text": "Scarcely ___ sat down when the fire alarm went off.", "options": ["we had", "had we", "we have", "have we"], "answer": "had we", "explain": "Negative adverb 'Scarcely' at the front forces inversion."},
+  {"level": "C2", "text": "The committee has yet ___ a final decision.", "options": ["making", "to make", "made", "being made"], "answer": "to make", "explain": "'Have yet to + infinitive' means something hasn't happened yet."},
+  {"level": "C2", "text": "By next year, she ___ here for a full decade.", "options": ["will work", "will have been working", "has been working", "is working"], "answer": "will have been working", "explain": "Future perfect continuous expresses duration up to a future point."},
+  {"level": "C2", "text": "Far be it ___ me to criticize, but the report is full of errors.", "options": ["of", "for", "from", "to"], "answer": "from", "explain": "'Far be it from me' is a fossilized formulaic hedge before criticism."}
 ]

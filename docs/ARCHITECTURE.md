@@ -73,6 +73,10 @@ Modules have no shared state. Anything that needs to persist between sessions go
     writePhoto:   [...],
     writingSample:[...],
   },
+  levels: {
+    vocabulary: 'B2',   // adaptive: B1 | B2 | C1 | C2
+    fillBlanks: 'B1',
+  },
   mockTestHistory: [{ score: 110, breakdown: {...}, at: ISO }], // max 20
   essays: [{ type, prompt, text, wordCount, date }]              // max 50
 }
@@ -87,6 +91,24 @@ updateProgress(state => {
 ```
 
 The wrapper merges missing keys from `defaultState()` on every read, so schema additions are forward-compatible without migrations. **If you change the schema in a breaking way, bump the key to `det_progress_v2` and write a migration.**
+
+### Adaptive levels
+
+`storage.js` also exposes two helpers used by adaptive modules:
+
+```js
+getLevel('vocabulary')         // → 'B2'
+adjustLevel('vocabulary', 0.83) // → { before: 'B2', after: 'C1', direction: 'up' }
+```
+
+Thresholds (defined in `storage.js`):
+
+- `LEVEL_UP_THRESHOLD = 0.8` — session accuracy above this promotes the learner
+- `LEVEL_DOWN_THRESHOLD = 0.4` — accuracy below this drops them one level
+- Default level for a new learner: `B1`
+- Levels clamp at the ends (no demotion below `B1`, no promotion above `C2`)
+
+Each adaptive module filters its data pool by the current level, with spillover to adjacent levels if the exact-level pool is too thin to fill a session.
 
 ### Theme
 

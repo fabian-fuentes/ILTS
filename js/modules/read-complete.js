@@ -1,11 +1,11 @@
-// read-complete.js — "Read and Complete" (cloze). Ocultamos ~60% de las letras
-// de aproximadamente la mitad de las palabras con más de 3 letras, y el usuario
-// debe escribirlas. Tiempo: 3 minutos.
+// read-complete.js — "Read and Complete" (cloze). We hide ~60% of the letters
+// in roughly half of the 4+-letter words and the learner types them in.
+// Time limit: 3 minutes.
 
 import { loadData } from '../app.js';
 import { pushScore } from '../storage.js';
 
-const TIME_LIMIT = 180; // segundos
+const TIME_LIMIT = 180; // seconds
 
 let passage = null;
 let blanks = []; // { wordIdx, charIdx, correct }
@@ -13,7 +13,7 @@ let timerInterval = null;
 let remaining = TIME_LIMIT;
 
 function buildBlanks(text) {
-    const tokens = text.split(/(\s+)/); // preserva espacios
+    const tokens = text.split(/(\s+)/); // preserve whitespace
     const result = [];
     let wordIdx = 0;
     let totalWords = tokens.filter(t => /\w/.test(t)).length;
@@ -25,11 +25,11 @@ function buildBlanks(text) {
             result.push({ type: 'space', text: tok });
             return;
         }
-        // Decide si convertimos esta palabra en blanked: cada ~2da palabra larga
+        // Blank every other long word, up to the target.
         const isLong = tok.replace(/[^A-Za-z]/g, '').length >= 4;
         const shouldBlank = isLong && blankedWords < target && (wordIdx % 2 === 1);
         if (shouldBlank) {
-            // Mantenemos las primeras 1-2 letras, ocultamos el resto (máx ~60%)
+            // Keep the first 1–2 letters visible, hide the rest (~60%).
             const letters = tok.split('');
             const firstKeep = Math.max(1, Math.floor(tok.replace(/[^A-Za-z]/g, '').length * 0.4));
             let lettersSeenAlpha = 0;
@@ -75,12 +75,12 @@ export function render(container) {
     container.innerHTML = `
         <div class="header-bar">
             <h1>📖 Read & Complete</h1>
-            <a href="#/dashboard" class="btn-ghost btn">← Inicio</a>
+            <a href="#/dashboard" class="btn-ghost btn">← Home</a>
         </div>
-        <p>Completa las letras que faltan. Tienes 3 minutos.</p>
+        <p>Fill in the missing letters. You have 3 minutes.</p>
         <div class="header-bar">
             <div class="timer" id="timer">3:00</div>
-            <button id="submit-btn">Enviar</button>
+            <button id="submit-btn">Submit</button>
         </div>
         <div id="cloze-area" class="cloze-text"></div>
         <div id="feedback"></div>
@@ -121,7 +121,7 @@ function renderTokens(container, tokens) {
                     inp.dataset.pi = pi;
                     inp.addEventListener('input', (e) => {
                         if (e.target.value.length === 1) {
-                            // autofocus al siguiente input
+                            // Auto-advance focus to the next input.
                             const inputs = [...area.querySelectorAll('input')];
                             const idx = inputs.indexOf(e.target);
                             if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
@@ -162,11 +162,11 @@ function submit(container) {
     pushScore('readComplete', accuracy);
     const fb = container.querySelector('#feedback');
     fb.innerHTML = `<div class="feedback ${accuracy >= 0.6 ? 'correct' : 'incorrect'}">
-        Acertaste ${correct} de ${inputs.length} letras (${Math.round(accuracy * 100)}%).
+        You got ${correct} of ${inputs.length} letters right (${Math.round(accuracy * 100)}%).
     </div>
     <div class="btn-row">
-        <button id="again">Otro pasaje</button>
-        <a href="#/dashboard" class="btn btn-secondary">Volver al inicio</a>
+        <button id="again">Another passage</button>
+        <a href="#/dashboard" class="btn btn-secondary">Back to home</a>
     </div>`;
     fb.querySelector('#again').addEventListener('click', () => render(container));
     container.querySelector('#submit-btn').disabled = true;

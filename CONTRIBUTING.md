@@ -16,7 +16,7 @@ Thanks for considering a contribution! ILTS is a small, dependency-free project 
 
 - **No new dependencies** without discussion in an issue first. Vanilla JS is a feature.
 - **No build step.** The repo serves as-is from any static host.
-- App UI strings stay in **Spanish** (audience is Latin American students). Docs and code comments are in **English**.
+- App UI, docs, and code comments are all in **English**.
 - Be kind in reviews and issues.
 
 ## Development workflow

@@ -1,4 +1,4 @@
-// writing-sample.js — Ensayo de 5 minutos a partir de un prompt.
+// writing-sample.js — 5-minute timed essay from a prompt.
 
 import { loadData } from '../app.js';
 import { pushScore, saveEssay } from '../storage.js';
@@ -23,12 +23,12 @@ export function render(container) {
     container.innerHTML = `
         <div class="header-bar">
             <h1>📝 Writing Sample</h1>
-            <a href="#/dashboard" class="btn-ghost btn">← Inicio</a>
+            <a href="#/dashboard" class="btn-ghost btn">← Home</a>
         </div>
-        <p>Escribe un ensayo breve (objetivo: 100+ palabras) en 5 minutos.</p>
+        <p>Write a short essay (goal: 100+ words) in 5 minutes.</p>
         <div class="header-bar">
             <div class="timer" id="timer">5:00</div>
-            <button id="submit-btn">Enviar</button>
+            <button id="submit-btn">Submit</button>
         </div>
         <div id="content"></div>
     `;
@@ -41,12 +41,12 @@ export function render(container) {
                 <p style="color:var(--text); font-size:1.05rem;">${currentPrompt}</p>
             </div>
             <textarea id="essay" style="min-height:220px;" placeholder="Write your essay here..."></textarea>
-            <div class="word-count" id="wc">0 palabras</div>
+            <div class="word-count" id="wc">0 words</div>
             <div id="fb"></div>
         `;
         const ta = content.querySelector('#essay');
         const wc = content.querySelector('#wc');
-        ta.addEventListener('input', () => { wc.textContent = `${countWords(ta.value)} palabras`; });
+        ta.addEventListener('input', () => { wc.textContent = `${countWords(ta.value)} words`; });
         ta.focus();
         container.querySelector('#submit-btn').addEventListener('click', () => submit(container));
         startTimer(container);
@@ -75,7 +75,7 @@ function submit(container) {
     if (!ta) return;
     const text = ta.value.trim();
     const wc = countWords(text);
-    // Scoring: 100+ palabras = 1.0
+    // Scoring: 100+ words = 1.0.
     const accuracy = Math.min(1, wc / 100);
     pushScore('writingSample', accuracy);
     saveEssay('writingSample', currentPrompt, text, wc);
@@ -83,11 +83,11 @@ function submit(container) {
     container.querySelector('#submit-btn').disabled = true;
     container.querySelector('#fb').innerHTML = `
         <div class="feedback ${accuracy >= 0.6 ? 'correct' : 'incorrect'}">
-            ${wc} palabras. ${accuracy >= 0.6 ? '¡Bien! Intenta también mejorar la variedad de vocabulario.' : 'Trata de escribir al menos 100 palabras la próxima vez.'}
+            ${wc} words. ${accuracy >= 0.6 ? 'Well done! Try to vary your vocabulary too.' : 'Try to write at least 100 words next time.'}
         </div>
         <div class="btn-row">
-            <button id="again">Otro prompt</button>
-            <a href="#/dashboard" class="btn btn-secondary">Volver al inicio</a>
+            <button id="again">Another prompt</button>
+            <a href="#/dashboard" class="btn btn-secondary">Back to home</a>
         </div>
     `;
     container.querySelector('#again').addEventListener('click', () => render(container));

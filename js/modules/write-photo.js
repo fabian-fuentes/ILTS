@@ -1,5 +1,5 @@
-// write-photo.js — "Write About the Photo". Muestra imagen + textarea.
-// Tiempo: 1 minuto. Se califica por número de palabras (>= 30 → bueno).
+// write-photo.js — "Write About the Photo". Shows an image + a textarea.
+// Time limit: 1 minute. Scoring by word count (>= 30 → full marks).
 
 import { loadData } from '../app.js';
 import { pushScore, saveEssay } from '../storage.js';
@@ -24,12 +24,12 @@ export function render(container) {
     container.innerHTML = `
         <div class="header-bar">
             <h1>🖼️ Write About the Photo</h1>
-            <a href="#/dashboard" class="btn-ghost btn">← Inicio</a>
+            <a href="#/dashboard" class="btn-ghost btn">← Home</a>
         </div>
-        <p>Describe la imagen en inglés con al menos 1-2 frases. Tienes 1 minuto.</p>
+        <p>Describe the photo in English with at least 1–2 sentences. You have 1 minute.</p>
         <div class="header-bar">
             <div class="timer" id="timer">1:00</div>
-            <button id="submit-btn">Enviar</button>
+            <button id="submit-btn">Submit</button>
         </div>
         <div id="content"></div>
     `;
@@ -38,16 +38,16 @@ export function render(container) {
         const content = container.querySelector('#content');
         content.innerHTML = `
             <div class="photo-frame">
-                <img src="${currentPhoto.url}" alt="${currentPhoto.alt}" onerror="this.style.opacity=0.3; this.alt='(No se pudo cargar la imagen)';">
+                <img src="${currentPhoto.url}" alt="${currentPhoto.alt}" onerror="this.style.opacity=0.3; this.alt='(Image failed to load)';">
             </div>
             <textarea id="essay" placeholder="Describe what you see in the photo..."></textarea>
-            <div class="word-count" id="wc">0 palabras</div>
+            <div class="word-count" id="wc">0 words</div>
             <div id="fb"></div>
         `;
         const ta = content.querySelector('#essay');
         const wc = content.querySelector('#wc');
         ta.addEventListener('input', () => {
-            wc.textContent = `${countWords(ta.value)} palabras`;
+            wc.textContent = `${countWords(ta.value)} words`;
         });
         ta.focus();
         container.querySelector('#submit-btn').addEventListener('click', () => submit(container));
@@ -77,7 +77,7 @@ function submit(container) {
     if (!ta) return;
     const text = ta.value.trim();
     const wc = countWords(text);
-    // Scoring por volumen: 30+ palabras = 1.0, 15 = 0.5, 5 = ~0.17
+    // Volume scoring: 30+ words = 1.0, 15 = 0.5, 5 ≈ 0.17.
     const accuracy = Math.min(1, wc / 30);
     pushScore('writePhoto', accuracy);
     saveEssay('writePhoto', currentPhoto.alt, text, wc);
@@ -85,11 +85,11 @@ function submit(container) {
     container.querySelector('#submit-btn').disabled = true;
     container.querySelector('#fb').innerHTML = `
         <div class="feedback ${accuracy >= 0.6 ? 'correct' : 'incorrect'}">
-            ${wc} palabras escritas. ${accuracy >= 0.6 ? '¡Buen trabajo!' : 'Intenta escribir al menos 30 palabras la próxima vez.'}
+            ${wc} words written. ${accuracy >= 0.6 ? 'Nice work!' : 'Aim for at least 30 words next time.'}
         </div>
         <div class="btn-row">
-            <button id="again">Otra foto</button>
-            <a href="#/dashboard" class="btn btn-secondary">Volver al inicio</a>
+            <button id="again">Another photo</button>
+            <a href="#/dashboard" class="btn btn-secondary">Back to home</a>
         </div>
     `;
     container.querySelector('#again').addEventListener('click', () => render(container));

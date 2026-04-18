@@ -1,5 +1,5 @@
-// tts.js — Wrapper del Web Speech API (SpeechSynthesis) para ejercicios de listening.
-// Los navegadores cargan voces de forma asíncrona; manejamos ambos casos.
+// tts.js — Wrapper around the Web Speech API (SpeechSynthesis) for listening exercises.
+// Browsers load voices asynchronously; we handle both the sync and async cases.
 
 let cachedVoice = null;
 
@@ -38,14 +38,14 @@ export function ensureVoiceLoaded() {
             cachedVoice = pickEnglishVoice();
             resolve(cachedVoice);
         };
-        // Timeout de seguridad: resolver sin voz explícita para que el navegador use la default
+        // Safety timeout: resolve without a specific voice so the browser uses its default.
         setTimeout(() => resolve(cachedVoice || null), 1500);
     });
 }
 
 export function speak(text, { rate = 0.95, onend } = {}) {
     if (!isTtsAvailable()) {
-        alert('Tu navegador no soporta síntesis de voz. Prueba con Chrome o Firefox.');
+        alert('Your browser does not support speech synthesis. Try Chrome or Firefox.');
         onend && onend();
         return;
     }

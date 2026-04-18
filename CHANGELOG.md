@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-04-18
+
+### Added
+- **Adaptive difficulty** for Vocabulary and Grammar Blanks. Sessions auto-filter their pool by the learner's current CEFR level (`state.levels.vocabulary`, `state.levels.fillBlanks`). Accuracy ≥ 0.8 promotes one level (B1 → B2 → C1 → C2); accuracy ≤ 0.4 demotes. Spillover to adjacent levels when the exact-level pool is small.
+- `getLevel()` and `adjustLevel()` helpers in `js/storage.js`; `LEVELS`, `DEFAULT_LEVEL`, `LEVEL_UP_THRESHOLD`, `LEVEL_DOWN_THRESHOLD` constants exported.
+- `.level-badge` / `.level-badge-lg` CSS component for CEFR labels; shown on every adaptive dashboard tile and in the header of adaptive exercise modules.
+- Session-complete screens now announce promotions and demotions.
+- **65 new vocabulary entries** (+25 C1, +40 C2). Totals: 34 B1 / 75 B2 / 59 C1 / 40 C2 (210 words).
+- `level` field on every grammar item. Grammar pool grown from 20 to 46 items balanced across B1 (12), B2 (12), C1 (12), C2 (10) — inversion, mixed conditionals, subjunctive, cleft structures, future perfect continuous, etc.
+
+### Changed
+- **App UI translated from Spanish to English** in every module, `index.html`, `js/app.js`, `js/tts.js`, dashboard. `<html lang="en">`.
+- Docs reframe: `README.md` no longer describes the app as Spanish-only; adds "Adaptive difficulty" section explaining thresholds.
+- `docs/ARCHITECTURE.md` documents the adaptive level subsystem.
+- `docs/DATA-SCHEMA.md` documents the new `level` field on grammar items.
+- `CONTRIBUTING.md`: code style line now says UI/docs/comments are all in English.
+
+### Preserved
+- `localStorage['det_progress_v1']` schema remains forward-compatible — existing users gain `state.levels = { vocabulary: 'B1', fillBlanks: 'B1' }` on first read with no migration needed.
+- Aurora Bento design system untouched except for the new `.level-badge` component.
+- No exercise logic changed other than vocabulary/fill-blanks filtering.
+
+## [0.2.1] — 2026-04-18
+
 ### Added
 - `.github/workflows/pages.yml` — GitHub Actions workflow that deploys the static site to GitHub Pages on every push to `main`
 - `.nojekyll` — disables Jekyll on Pages so the repo is served as-is
