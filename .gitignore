@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+# Node (in case anyone runs `npx serve` or similar)
+node_modules/
+.cache/
+
+# Build artifacts (not used today, guarded for later)
+dist/
+build/
+
+# Coverage
+coverage/
