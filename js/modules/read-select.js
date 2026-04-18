@@ -1,6 +1,5 @@
-// read-select.js — "Read and Select". Muestra una rejilla de palabras (reales
-// mezcladas con palabras inventadas). El usuario debe hacer click solo en las reales.
-// Tiempo: 1 min 15 s.
+// read-select.js — "Read and Select". A grid of real + made-up words; the
+// learner taps only the real ones. Time limit: 1 min 15 s.
 
 import { loadData } from '../app.js';
 import { pushScore } from '../storage.js';
@@ -31,12 +30,12 @@ export function render(container) {
     container.innerHTML = `
         <div class="header-bar">
             <h1>🔤 Read & Select</h1>
-            <a href="#/dashboard" class="btn-ghost btn">← Inicio</a>
+            <a href="#/dashboard" class="btn-ghost btn">← Home</a>
         </div>
-        <p>Haz click en las <strong>palabras reales en inglés</strong>. Ignora las inventadas.</p>
+        <p>Tap only the <strong>real English words</strong>. Ignore the made-up ones.</p>
         <div class="header-bar">
             <div class="timer" id="timer">1:15</div>
-            <button id="submit-btn">Enviar</button>
+            <button id="submit-btn">Submit</button>
         </div>
         <div class="word-grid" id="word-grid"></div>
         <div id="feedback"></div>
@@ -105,18 +104,17 @@ function submit(container) {
         else if (w.real && !wasSelected) { chip.classList.add('incorrect'); misses += 1; }
         else { chip.classList.add('correct'); correctRejections += 1; }
     });
-    // Accuracy = (hits + correct rejections) / total
     const total = chips.length;
     const accuracy = (hits + correctRejections) / total;
     pushScore('readSelect', accuracy);
     const fb = container.querySelector('#feedback');
     fb.innerHTML = `<div class="feedback ${accuracy >= 0.7 ? 'correct' : 'incorrect'}">
-        Acertaste ${hits + correctRejections} de ${total} decisiones (${Math.round(accuracy * 100)}%).
-        <br>✓ ${hits} palabras reales seleccionadas · ✗ ${falseAlarms} falsas alarmas · ✗ ${misses} reales omitidas
+        You made ${hits + correctRejections} of ${total} correct calls (${Math.round(accuracy * 100)}%).
+        <br>✓ ${hits} real words selected · ✗ ${falseAlarms} false alarms · ✗ ${misses} real words missed
     </div>
     <div class="btn-row">
-        <button id="again">Otro set</button>
-        <a href="#/dashboard" class="btn btn-secondary">Volver al inicio</a>
+        <button id="again">Another set</button>
+        <a href="#/dashboard" class="btn btn-secondary">Back to home</a>
     </div>`;
     fb.querySelector('#again').addEventListener('click', () => render(container));
     container.querySelector('#submit-btn').disabled = true;

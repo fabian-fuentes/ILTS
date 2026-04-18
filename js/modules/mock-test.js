@@ -1,5 +1,5 @@
-// mock-test.js — Simulacro mixto de ~10 minutos. Combina 6 ítems de distintos
-// tipos y calcula un puntaje DET estimado al final.
+// mock-test.js — ~10-minute mixed mock test. Combines 6 items of different
+// types and computes an estimated DET score at the end.
 
 import { loadData } from '../app.js';
 import { pushScore, saveMockResult } from '../storage.js';
@@ -38,11 +38,11 @@ function wordSimilarity(expected, actual) {
 export function render(container) {
     container.innerHTML = `
         <div class="header-bar">
-            <h1>🏁 Simulacro DET</h1>
-            <a href="#/dashboard" class="btn-ghost btn">← Inicio</a>
+            <h1>🏁 DET Mock Test</h1>
+            <a href="#/dashboard" class="btn-ghost btn">← Home</a>
         </div>
-        <p>6 preguntas mixtas (Reading, Listening, Grammar, Writing). Al final verás tu puntaje estimado.</p>
-        <div id="mock-area"><div class="loader">Preparando preguntas...</div></div>
+        <p>6 mixed questions (Reading, Listening, Grammar, Writing). Your estimated score appears at the end.</p>
+        <div id="mock-area"><div class="loader">Preparing questions...</div></div>
     `;
     Promise.all([
         loadData('reading.json'),
@@ -82,7 +82,7 @@ function renderItem(container) {
     }
     const it = items[currentIdx];
     area.innerHTML = `<div class="progress-bar"><div class="fill" style="width:${(currentIdx / items.length) * 100}%"></div></div>
-        <div class="subtitle">Pregunta ${currentIdx + 1} / ${items.length}</div>
+        <div class="subtitle">Question ${currentIdx + 1} / ${items.length}</div>
         <div id="item-area"></div>`;
 
     const itemArea = area.querySelector('#item-area');
@@ -114,7 +114,7 @@ function renderGrammar(area, it, container) {
                     ${opts.map(o => `<option value="${o}">${o}</option>`).join('')}
                 </select>${parts[1] || ''}
             </p>
-            <div class="btn-row"><button id="check">Comprobar</button></div>
+            <div class="btn-row"><button id="check">Check</button></div>
             <div id="fb"></div>
         </div>
     `;
@@ -123,7 +123,7 @@ function renderGrammar(area, it, container) {
         if (!val) return;
         const right = val === it.data.answer;
         area.querySelector('#fb').innerHTML = `<div class="feedback ${right ? 'correct' : 'incorrect'}">
-            ${right ? '✓ Correcto' : `✗ Correcto: ${it.data.answer}`}
+            ${right ? '✓ Correct' : `✗ Correct answer: ${it.data.answer}`}
         </div>`;
         area.querySelector('#check').disabled = true;
         area.querySelector('#ans').disabled = true;
@@ -140,9 +140,9 @@ function renderReadSelect(area, it, container) {
     area.innerHTML = `
         <div class="card">
             <h3>Read & Select</h3>
-            <p>Marca las palabras reales en inglés.</p>
+            <p>Tap only the real English words.</p>
             <div class="word-grid" id="wg"></div>
-            <div class="btn-row"><button id="check">Comprobar</button></div>
+            <div class="btn-row"><button id="check">Check</button></div>
             <div id="fb"></div>
         </div>
     `;
@@ -178,12 +178,12 @@ function renderListenType(area, it, container) {
     area.innerHTML = `
         <div class="card">
             <h3>Listen & Type</h3>
-            ${!isTtsAvailable() ? '<div class="feedback incorrect">⚠️ TTS no disponible</div>' : ''}
+            ${!isTtsAvailable() ? '<div class="feedback incorrect">⚠️ TTS not available</div>' : ''}
             <div class="play-area">
-                <button id="play" class="big-play">🔊 Escuchar</button>
+                <button id="play" class="big-play">🔊 Listen</button>
             </div>
             <textarea id="ans" placeholder="Type what you hear..."></textarea>
-            <div class="btn-row"><button id="check">Comprobar</button></div>
+            <div class="btn-row"><button id="check">Check</button></div>
             <div id="fb"></div>
         </div>
     `;
@@ -193,7 +193,7 @@ function renderListenType(area, it, container) {
         if (plays <= 0) return;
         plays -= 1;
         speak(it.data);
-        playBtn.textContent = `🔊 Escuchar (${plays} restante${plays === 1 ? '' : 's'})`;
+        playBtn.textContent = `🔊 Listen (${plays} left)`;
         if (plays <= 0) playBtn.disabled = true;
     });
     setTimeout(() => playBtn.click(), 400);
@@ -218,13 +218,13 @@ function renderListenSelect(area, it, container) {
     area.innerHTML = `
         <div class="card">
             <h3>Listen & Select</h3>
-            ${!isTtsAvailable() ? '<div class="feedback incorrect">⚠️ TTS no disponible</div>' : ''}
+            ${!isTtsAvailable() ? '<div class="feedback incorrect">⚠️ TTS not available</div>' : ''}
             <div class="play-area">
-                <button id="play" class="big-play">🔊 Reproducir</button>
+                <button id="play" class="big-play">🔊 Play</button>
             </div>
-            <p>Marca solo las palabras reales.</p>
+            <p>Tick only the real English words.</p>
             <div class="word-grid" id="wg"></div>
-            <div class="btn-row"><button id="check">Comprobar</button></div>
+            <div class="btn-row"><button id="check">Check</button></div>
             <div id="fb"></div>
         </div>
     `;
@@ -234,7 +234,7 @@ function renderListenSelect(area, it, container) {
         if (plays <= 0) return;
         plays -= 1;
         speak(words.map(w => w.text).join(', '));
-        playBtn.textContent = `🔊 Reproducir (${plays} restante${plays === 1 ? '' : 's'})`;
+        playBtn.textContent = `🔊 Play (${plays} left)`;
         if (plays <= 0) playBtn.disabled = true;
     });
     setTimeout(() => playBtn.click(), 400);
@@ -274,18 +274,18 @@ function renderWritePhoto(area, it, container) {
                 <img src="${it.data.url}" alt="${it.data.alt}" onerror="this.style.opacity=0.3;">
             </div>
             <textarea id="ans" placeholder="Describe what you see..."></textarea>
-            <div class="word-count" id="wc">0 palabras</div>
-            <div class="btn-row"><button id="check">Enviar</button></div>
+            <div class="word-count" id="wc">0 words</div>
+            <div class="btn-row"><button id="check">Submit</button></div>
             <div id="fb"></div>
         </div>
     `;
     const ta = area.querySelector('#ans');
     const wc = area.querySelector('#wc');
-    ta.addEventListener('input', () => { wc.textContent = `${countWords(ta.value)} palabras`; });
+    ta.addEventListener('input', () => { wc.textContent = `${countWords(ta.value)} words`; });
     area.querySelector('#check').addEventListener('click', () => {
         const n = countWords(ta.value);
         const acc = Math.min(1, n / 30);
-        area.querySelector('#fb').innerHTML = `<div class="feedback ${acc >= 0.6 ? 'correct' : 'incorrect'}">${n} palabras</div>`;
+        area.querySelector('#fb').innerHTML = `<div class="feedback ${acc >= 0.6 ? 'correct' : 'incorrect'}">${n} words</div>`;
         area.querySelector('#check').disabled = true;
         ta.disabled = true;
         advance(container, it.section, acc);
@@ -301,18 +301,18 @@ function finish(container) {
     area.innerHTML = `
         <div class="score-banner">
             <div class="score">${score}</div>
-            <div class="label">Puntaje DET estimado</div>
+            <div class="label">Estimated DET score</div>
             <div class="label" style="margin-top:4px;">${band}</div>
         </div>
         <div class="card">
-            <h3>Desglose</h3>
+            <h3>Breakdown</h3>
             <ul style="list-style:none; padding:0;">
                 ${results.map(r => `<li style="margin:6px 0; color:var(--text-dim);">${r.section}: <strong style="color:var(--text)">${Math.round(r.accuracy * 100)}%</strong></li>`).join('')}
             </ul>
         </div>
         <div class="btn-row">
-            <button id="again">Otro simulacro</button>
-            <a href="#/dashboard" class="btn btn-secondary">Volver al inicio</a>
+            <button id="again">Another mock test</button>
+            <a href="#/dashboard" class="btn btn-secondary">Back to home</a>
         </div>
     `;
     area.querySelector('#again').addEventListener('click', () => render(container));

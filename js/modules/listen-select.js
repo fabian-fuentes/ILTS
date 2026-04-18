@@ -1,5 +1,5 @@
-// listen-select.js — "Listen and Select". TTS lee una lista de palabras;
-// el usuario marca las reales. 90 segundos.
+// listen-select.js — "Listen and Select". TTS reads a list of words and the
+// learner picks the real ones. 90 seconds per round.
 
 import { loadData } from '../app.js';
 import { pushScore } from '../storage.js';
@@ -32,19 +32,19 @@ export function render(container) {
     container.innerHTML = `
         <div class="header-bar">
             <h1>👂 Listen & Select</h1>
-            <a href="#/dashboard" class="btn-ghost btn">← Inicio</a>
+            <a href="#/dashboard" class="btn-ghost btn">← Home</a>
         </div>
-        <p>Escucha las palabras y marca solo las <strong>reales en inglés</strong>.</p>
-        ${!isTtsAvailable() ? '<div class="feedback incorrect">⚠️ Tu navegador no soporta síntesis de voz. Prueba con Chrome o Firefox.</div>' : ''}
+        <p>Listen to the words and tick the ones that are <strong>real English words</strong>.</p>
+        ${!isTtsAvailable() ? '<div class="feedback incorrect">⚠️ Your browser does not support speech synthesis. Try Chrome or Firefox.</div>' : ''}
         <div class="header-bar">
             <div class="timer" id="timer">1:30</div>
             <div>
-                <button id="play-btn" class="btn-secondary">🔊 Reproducir</button>
+                <button id="play-btn" class="btn-secondary">🔊 Play</button>
             </div>
         </div>
         <div class="word-grid" id="word-grid"></div>
         <div class="btn-row">
-            <button id="submit-btn">Enviar</button>
+            <button id="submit-btn">Submit</button>
         </div>
         <div id="feedback"></div>
     `;
@@ -69,10 +69,10 @@ function setupControls(container) {
     playBtn.addEventListener('click', () => {
         if (playsLeft <= 0) return;
         playsLeft -= 1;
-        // Leer las palabras una por una con pausas
+        // Read every word with a short pause in between.
         const phrase = words.map(w => w.text).join(', ');
         speak(phrase);
-        playBtn.textContent = `🔊 Reproducir (${playsLeft} restante${playsLeft === 1 ? '' : 's'})`;
+        playBtn.textContent = `🔊 Play (${playsLeft} left)`;
         if (playsLeft <= 0) playBtn.disabled = true;
     });
     container.querySelector('#submit-btn').addEventListener('click', () => submit(container));
@@ -131,11 +131,11 @@ function submit(container) {
     pushScore('listenSelect', acc);
     const fb = container.querySelector('#feedback');
     fb.innerHTML = `<div class="feedback ${acc >= 0.7 ? 'correct' : 'incorrect'}">
-        ${ok} de ${chips.length} decisiones correctas (${Math.round(acc * 100)}%).
+        ${ok} of ${chips.length} correct calls (${Math.round(acc * 100)}%).
     </div>
     <div class="btn-row">
-        <button id="again">Otro set</button>
-        <a href="#/dashboard" class="btn btn-secondary">Volver al inicio</a>
+        <button id="again">Another set</button>
+        <a href="#/dashboard" class="btn btn-secondary">Back to home</a>
     </div>`;
     fb.querySelector('#again').addEventListener('click', () => render(container));
     container.querySelector('#submit-btn').disabled = true;

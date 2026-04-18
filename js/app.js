@@ -1,5 +1,5 @@
 // app.js — Bootstrap + hash router + theme toggle.
-// Cada módulo exporta render(container, params?) y opcionalmente destroy().
+// Each module exports render(container, params?) and optionally destroy().
 
 import { ensureVoiceLoaded } from './tts.js';
 import { touchStreak } from './storage.js';
@@ -46,7 +46,7 @@ async function handleRoute() {
         await module.render(container);
     } catch (err) {
         console.error('Render error:', err);
-        container.innerHTML = `<div class="card"><h2>Error</h2><p>${err.message}</p><a class="btn" href="#/dashboard">Volver al inicio</a></div>`;
+        container.innerHTML = `<div class="card"><h2>Error</h2><p>${err.message}</p><a class="btn" href="#/dashboard">Back to home</a></div>`;
     }
     window.scrollTo(0, 0);
 }
@@ -74,7 +74,7 @@ function initTheme() {
     const initial = stored || (prefersLight ? 'light' : 'dark');
     applyTheme(initial);
 
-    // Follow system changes only if user hasn't explicitly chosen
+    // Follow system changes only if the user has not explicitly chosen.
     if (!stored && window.matchMedia) {
         const mq = window.matchMedia('(prefers-color-scheme: light)');
         mq.addEventListener?.('change', e => {
@@ -104,10 +104,10 @@ function init() {
     }
 }
 
-// Helper global para cargar JSON (usado por los módulos)
+// Helper used by modules to load JSON content.
 export async function loadData(file) {
     const res = await fetch(`data/${file}`);
-    if (!res.ok) throw new Error(`No se pudo cargar data/${file}`);
+    if (!res.ok) throw new Error(`Could not load data/${file}`);
     return res.json();
 }
 

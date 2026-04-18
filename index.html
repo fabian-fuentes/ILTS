@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0a0a14" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
-    <meta name="description" content="ILTS — Free, open-source Duolingo English Test prep app. Runs entirely in your browser. Vocabulary, reading, listening, writing, and mock tests with estimated DET scoring.">
+    <meta name="description" content="ILTS — Free, open-source, adaptive Duolingo English Test prep app. Runs entirely in your browser. Vocabulary, reading, listening, writing, and mock tests with estimated DET scoring.">
     <meta name="color-scheme" content="dark light">
 
-    <title>ILTS · DET Prep — Duolingo English Test Study App</title>
+    <title>ILTS · DET Prep — Adaptive Duolingo English Test Study App</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,14 +21,14 @@
     <div class="aurora-bg" aria-hidden="true"><span></span></div>
 
     <header class="app-header">
-        <a href="#/dashboard" class="logo" aria-label="ILTS inicio">🦉 ILTS</a>
+        <a href="#/dashboard" class="logo" aria-label="ILTS home">🦉 ILTS</a>
         <div class="header-right">
-            <nav class="main-nav" aria-label="Navegación principal">
-                <a href="#/dashboard">Inicio</a>
+            <nav class="main-nav" aria-label="Primary navigation">
+                <a href="#/dashboard">Home</a>
                 <a href="#/vocabulary">Vocab</a>
-                <a href="#/mock-test">Simulacro</a>
+                <a href="#/mock-test">Mock test</a>
             </nav>
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema">
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
                 <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
             </button>
@@ -36,11 +36,11 @@
     </header>
 
     <main id="app" class="app-main">
-        <div class="loader">Cargando…</div>
+        <div class="loader">Loading…</div>
     </main>
 
     <footer class="app-footer">
-        <small>App de estudio para el Duolingo English Test · Progreso guardado localmente en tu navegador · <a href="https://github.com/fabian-fuentes/ilts">GitHub</a></small>
+        <small>Study app for the Duolingo English Test · Progress saved locally in your browser · <a href="https://github.com/fabian-fuentes/ilts">GitHub</a></small>
     </footer>
 
     <script type="module" src="js/app.js"></script>
